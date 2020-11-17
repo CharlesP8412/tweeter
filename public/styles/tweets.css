@@ -1,7 +1,7 @@
 #tweets {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  width: 90%;
+  width: 80%;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
 
 #tweets article {
   height: 100%;
-  width: 100%;
+  width: 95%;
   border: 3px solid #545149;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -41,20 +41,30 @@
 #tweets header {
   height: 50%;
   width: 98%;
-  padding: 1rem;
+  padding: .5rem;
   flex-grow: 2;
   background-color: #f4f1ec;
   background-image: none;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
+}
+
+#tweets header span{
+  display:flex;
+  flex-direction: row;
+}
+
+#tweets img {
+  height: 4rem;
 }
 
 #tweets p.tweet {
   height: 40%;
   width: 98%;
   margin: 0;
-  padding: 1rem;
+  padding: .5rem;
 }
 
 #tweets footer {
