@@ -3,17 +3,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+  font-family: 'Bungee', cursive;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  font-family: 'Bungee', cursive;
 }
 
 textarea {
-  height: 3em;
+  height: auto;
   width: 60vh;
   background-color: #f4f1ec;
   border-color: #f4f1ec;
@@ -21,9 +20,12 @@ textarea {
   color:#545149;
   border-bottom-width: thick;
   padding: 5px;
-  resize: none;
+  resize: none;   
+  outline-width: 0;
+  font-size: medium
 }
 
+/* Button and Count  */
 .new-tweet div {
   padding: 5px;
   display: flex;
