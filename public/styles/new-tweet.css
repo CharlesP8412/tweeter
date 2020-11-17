@@ -13,7 +13,8 @@ form {
 
 textarea {
   height: auto;
-  width: 60vh;
+  /* vh is based on height may want to change, % relative to overall */
+  width: 100%;
   background-color: #f4f1ec;
   border-color: #f4f1ec;
   border-bottom-color: #545149;
@@ -22,7 +23,8 @@ textarea {
   padding: 5px;
   resize: none;   
   outline-width: 0;
-  font-size: medium
+  /* Go with a number (possibly rem) */
+  font-size: 1rem;
 }
 
 /* Button and Count  */
