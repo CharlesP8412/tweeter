@@ -1,8 +1,70 @@
-section#tweets{
-  border: 3px dashed red;
+#tweets {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   width: 90%;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  font-weight: bold;
+}
+
+#tweets article {
+  height: 100%;
+  width: 100%;
+  border: 3px solid #545149;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#username {
+  /* Hides User name until Article:hover is active */
+  display: none;
+}
+
+#tweets article:hover #username {
+  /* Targets the username and makes it re-appear*/
+  display: flex;
+}
+
+#tweets article:hover {
+  /* Only adds shadow to the article */
+  box-shadow: 1px 8px 20px grey;
+  transition: box-shadow .2s ease-in;
+}
+
+#tweets header {
+  height: 50%;
+  width: 98%;
+  padding: 1rem;
+  flex-grow: 2;
+  background-color: #f4f1ec;
+  background-image: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#tweets p.tweet {
+  height: 40%;
+  width: 98%;
+  margin: 0;
+  padding: 1rem;
+}
+
+#tweets footer {
+  border-top: 5px solid #545149;
+  height: 10%;
+  width: 98%;
+  padding: .5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#tweets footer>span.icons {
+  color: #4056a1;
 }

@@ -20,8 +20,8 @@ textarea {
   background-color: #f4f1ec;
   border-color: #f4f1ec;
   border-bottom-color: #545149;
-  color:#545149;
   border-bottom-width: thick;
+  color:#545149;
   padding: 5px;
   resize: none;   
   outline-width: 0;
@@ -41,5 +41,10 @@ textarea {
 button {
   background-color: #4056a1;
   color: #FFFFFF;
+}
+
+/* Class of the counter will Add to counterLimit Class if the char. count is over 140 */
+.counterLimit{
+color: red;
 }
 
