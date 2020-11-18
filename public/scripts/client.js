@@ -9,18 +9,13 @@ $(document).ready(function () {
 
   $('form button').on('click', event => {
     // Submit Post/Tweet
-    event.preventDefault() 
+    event.preventDefault()
     validateAndSubmit()
-    
-    //Add LatestPost to List
-
   });
 
   //Loads All Posts on REFRESH
   const fetchAndUpdateAll = () => loadTweets(renderTweets)
   fetchAndUpdateAll()
-
-
 
 });
 

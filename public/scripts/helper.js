@@ -9,8 +9,12 @@ const loadTweets = function (action) {
 };
 
 const renderTweets = function (inputData) {
+  // empty then in sectoin
+  $('#tweets-container').empty()
   console.log("Rendering (All data to indv)")
-  for (post of inputData) {
+  // Reverses JSON to give newest first (should be switchable)
+  const revData = inputData //.reverse()
+  for (post of revData) {
     createTweetElement(post);
   };
 };
@@ -41,20 +45,18 @@ const createTweetElement = function (post) {
 `);
 
   // return $tweet;
-  $('#tweets-container').append($tweet);
+  $('#tweets-container').prepend($tweet);
 };
 
 
-const getLastTweet = (creationMethod) => {
-  const allData = loadTweets(creationMethod)
-  console.log("ALL>> ", allData)
-  const lastItem = Object.values(allData).pop()
 
+
+const addLatestPost = (posts, creationMethod) => {
+  const post = Object.values(posts).pop();
+  creationMethod(post)
 }
 
-const createLastTweet = (post) => {
-  createTweetElement(post);
-}
+
 
 
 
@@ -65,11 +67,12 @@ const validateAndSubmit = function() {
     alert("Tweets cannot be empty")
 
   } else if (input.length > 140) {
-    console.log('Vinput', input)
     //Max Character Exceeded
     alert("Uh oh, your tweet is more than 140 characters")
   } else {
     submitTweet();
+    const fetchAndUpdateAll = () => loadTweets(renderTweets)
+    fetchAndUpdateAll()
   }
    
 }
@@ -90,3 +93,11 @@ const resetTextBox = () => {
   $('#tweet-text').val('');
   $('output.counter').val(140);
 }
+
+
+
+   //Add LatestPost to List
+    //Call
+    // const createSinglePost = posts => addLatestPost(posts, createTweetElement);
+    // const fetchAndUpdate = () => loadTweets(createSinglePost)
+    // fetchAndUpdate()
