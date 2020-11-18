@@ -58,7 +58,7 @@ const createLastTweet = (post) => {
 
 
 
-const validateForm = function() {
+const validateAndSubmit = function() {
   input = $("#tweet-text").val()
   if (input === "") {
     // Must have something to input
@@ -81,6 +81,11 @@ const submitTweet = function(){
     url: "/tweets/",
     data: $('form').serialize()
   })
+  resetTextBox();
+}
+
+
+const resetTextBox = () => {
   //Clear Text Box after post and reset counter
   $('#tweet-text').val('');
   $('output.counter').val(140);
