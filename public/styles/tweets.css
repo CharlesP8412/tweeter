@@ -22,7 +22,7 @@
   justify-content: space-between;
 }
 
-#handle {
+#tweets-container #handle {
   /* Hides User name until Article:hover is active */
   display: none;
 }
@@ -60,7 +60,7 @@
   height: 4rem;
 }
 
-#tweets-container p.tweet {
+#tweets-container p.tweet-contents {
   height: 40%;
   width: 98%;
   margin: 0;
