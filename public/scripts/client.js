@@ -4,37 +4,27 @@
 * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
 
-
 $(document).ready(function () {
-  /*   const data = [
-      {
-        "user": {
-          "name": "Newton",
-          "avatars": "https://i.imgur.com/73hZDYK.png"
-          ,
-          "handle": "@SirIsaac"
-        },
-        "content": {
-          "text": "If I have seen further it is by standing on the shoulders of giants"
-        },
-        "created_at": 1461116232227
-      },
-      {
-        "user": {
-          "name": "Descartes",
-          "avatars": "https://i.imgur.com/nlhLi3I.png",
-          "handle": "@rd"
-        },
-        "content": {
-          "text": "Je pense , donc je suis"
-        },
-        "created_at": 1461113959088
-      }
-    ]; */
+
+  $('form button').on('click', event => {
+    // Submit Post/Tweet
+    event.preventDefault()
+    $.ajax({
+      method: 'POST',
+      url: "/tweets/",
+      data: $('form').serialize()
+    })
+    //Clear Text Box after post and reset counter
+    $('#tweet-text').val('');
+    $('ouput.counter').val(140);
+  
+    //Add LatestPost to List
+  });
+
 
   const createTweetElement = function (post) {
     // Got a good way of doing it, should break down into chunks
-      console.log("Creating Tweet", post)
+    console.log("Creating Tweet", post)
 
 
     const $tweet = $(`
@@ -60,35 +50,20 @@ $(document).ready(function () {
     $('#tweets-container').append($tweet);
   };
 
-  const renderTweets = function (inputData) {
-    console.log("Rendering")
+  const renderTweets = function (inputData, createMethod) {
+    console.log("Rendering (All data to indv)")
     for (post of inputData) {
       createTweetElement(post);
     };
-
   };
 
-  // const $tweet1 = renderTweets(data);
 
 
-  $('form button').on('click', event => {
-    // Submit Post/Tweet
-    event.preventDefault()
-    $.ajax({
-      method: 'POST',
-      url: "/tweets/",
-      data: $('form').serialize()
-    })
-    //Clear Text Box after post and reset counter
-    $('#tweet-text').val('');
-    $('counter').val(140);
-
-
-  });
 
 
 
   const loadTweets = function (action) {
+    console.log("LOADING TWEETS")
     //GET the latest Tweet
     $.ajax("/tweets/")
       .then(res => {
@@ -97,10 +72,10 @@ $(document).ready(function () {
       });
   };
 
-  const fetchAndPost = () => loadTweets(renderTweets)
-  fetchAndPost()
+  //Loads All Posts on REFRESH
+  const fetchAndUpdateAll = () => loadTweets(renderTweets)
+  fetchAndUpdateAll()
 
-  // console.log("LOADTweets>>", loadTweets())
 
 });
 
