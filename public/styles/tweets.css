@@ -1,4 +1,4 @@
-#tweets {
+#tweets-container {
   padding-top: 2rem;
   padding-bottom: 2rem;
   width: 80%;
@@ -10,7 +10,7 @@
   font-weight: bold;
 }
 
-#tweets article {
+#tweets-container article {
   height: 100%;
   width: 95%;
   border: 3px solid #545149;
@@ -22,23 +22,23 @@
   justify-content: space-between;
 }
 
-#username {
+#handle {
   /* Hides User name until Article:hover is active */
   display: none;
 }
 
-#tweets article:hover #username {
-  /* Targets the username and makes it re-appear*/
+#tweets-container article:hover #handle {
+  /* Targets the hande and makes it re-appear*/
   display: flex;
 }
 
-#tweets article:hover {
+#tweets-container article:hover {
   /* Only adds shadow to the article */
   box-shadow: 1px 8px 20px grey;
   transition: box-shadow .2s ease-in;
 }
 
-#tweets header {
+#tweets-container header {
   height: 50%;
   width: 98%;
   padding: .5rem;
@@ -51,23 +51,23 @@
   justify-content: space-between;
 }
 
-#tweets header span{
+#tweets-container header span{
   display:flex;
   flex-direction: row;
 }
 
-#tweets img {
+#tweets-container img {
   height: 4rem;
 }
 
-#tweets p.tweet {
+#tweets-container p.tweet {
   height: 40%;
   width: 98%;
   margin: 0;
   padding: .5rem;
 }
 
-#tweets footer {
+#tweets-container footer {
   border-top: 5px solid #545149;
   height: 10%;
   width: 98%;
@@ -77,6 +77,6 @@
   align-items: center;
 }
 
-#tweets footer>span.icons {
+#tweets-container footer>span.icons {
   color: #4056a1;
 }
