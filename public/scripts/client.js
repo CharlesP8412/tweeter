@@ -4,19 +4,19 @@
 * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
 
-$(document).ready(function () {
+$(document).ready(function() {
   //Hide New Tweet area and Input Error Message
-  $("#inputError").hide()
-  $(".new-tweet").hide()
+  $("#inputError").hide();
+  $(".new-tweet").hide();
 
   //Loads All Posts on REFRESH
-  const fetchAndUpdateAll = () => loadTweets(renderTweets)
-  fetchAndUpdateAll()
+  const fetchAndUpdateAll = () => loadTweets(renderTweets);
+  fetchAndUpdateAll();
 
   $('form button').on('click', event => {
     // Submit Post/Tweet
-    event.preventDefault()
-    validateAndSubmit()
+    event.preventDefault();
+    validateAndSubmit();
   });
 
 
@@ -28,26 +28,22 @@ $(document).ready(function () {
     }, {
       duration: "slow"
     });
-    $('textarea').focus()
-  })
+    $('textarea').focus();
+  });
 
-  //Rtn to Top Button 
+  //Rtn to Top Button
   // Show/Hide Button on scroll Button
-  $(window).scroll( function(){
-    if ($(window).scrollTop() > 50){
-    $("#topButton").show("slow")
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 50) {
+      $("#topButton").show("slow");
     } else {
-      $("#topButton").hide("slow")
+      $("#topButton").hide("slow");
     }
-  
-  })
+  });
   //Rtn to Top on Click
   $('#topButton').on('click', () => {
-    $('html, body').animate({scrollTop:0}, '300');
-  })
-
-
-
+    $('html, body').animate({ scrollTop: 0 }, '300');
+  });
 });
 
 
