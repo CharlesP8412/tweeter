@@ -1,20 +1,36 @@
 /* =======  Tablet & Desktop Styles +768px =================== */
 
 @media only screen and (min-width: 768px) {
+  nav {
+      background-color: #4056a1;
+      background-image: none;
+  }
+
+
   div.lgDisplay {
-    border: 5px dashed red;
     display: flex;
     width: 100%;
     flex-direction: row;
-    justify-content: center;
+    /* justify-content: center; */
     
   }
   .lgDisplay > :first-child {
-    border: 5px dashed blue;
     margin: 3%;
     width: 40%;
   }
   #tweets-container article {
     flex-wrap: nowrap;
   }
+
+  main.container {
+    width: 90%;
+  }
+}
+
+/* =======  Tablet & Desktop Styles +1024 =================== */
+@media only screen and (min-width: 1024px) {
+
+#tweets-container {
+width: 99%;
+}
 }
