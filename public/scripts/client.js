@@ -32,11 +32,16 @@ $(document).ready(function () {
   })
 
   //Rtn to Top Button 
-  $('window').scroll( function(){
-    console.log("TEST")
-
+  // Show Button on scroll 
+  $(window).scroll( function(){
+    $("#topButton").show("slow")
+  
   })
-  // .scroll()
+  //Rtn to Top on Click
+  $('#topButton').on('click', () => {
+    $('html, body').animate({scrollTop:0}, '300');
+  })
+
 
 
 });
