@@ -59,11 +59,11 @@ const validateAndSubmit = function () {
   input = $("#tweet-text").val()
   if (input === "") {
     // Must have something to input
-        $('#inputError').text("Womp womp, Tweets cannot be empty")
+        $('#inputError label').text("Womp womp, Tweets cannot be empty")
         $('#inputError').show('slow')
   } else if (input.length > 140) {
     //Max Character Exceeded
-    $('#inputError').text("Whoa now! Your tweet is more than 140 characters")
+    $('#inputError label').text("Whoa now! Your tweet is more than 140 characters")
     $('#inputError').show('slow')
   } else {
 

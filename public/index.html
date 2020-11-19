@@ -66,8 +66,11 @@
       <section class="new-tweet">
         <!-- <h2>Compose Tweet</h2> -->
         <form action="/tweets/" method="POST">
+          <div id="inputError">
           <!-- Add Function to make label appear when text area is clicked -->
-          <label id="inputError" for="tweet-text"> Error </label>
+          <label  for="tweet-text"> Error </label>
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div>

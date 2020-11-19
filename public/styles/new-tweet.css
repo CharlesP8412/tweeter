@@ -59,11 +59,14 @@ textarea {
 
 #inputError {
   color: red;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  text-align: center;
   align-self: center;
   border: solid red;
-  width: 80%;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin-bottom: .2rem;
 }
