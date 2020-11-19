@@ -32,9 +32,13 @@ $(document).ready(function () {
   })
 
   //Rtn to Top Button 
-  // Show Button on scroll 
+  // Show/Hide Button on scroll Button
   $(window).scroll( function(){
+    if ($(window).scrollTop() > 50){
     $("#topButton").show("slow")
+    } else {
+      $("#topButton").hide("slow")
+    }
   
   })
   //Rtn to Top on Click
