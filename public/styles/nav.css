@@ -23,8 +23,7 @@ nav:first-child {
 
 .navbutton:hover {
   cursor: pointer;
-  box-shadow: 1px 3px 2px #1f388a;
-  transition: box-shadow .2s ease-in;
+  color: gray
 }
 
 nav i {
