@@ -7,6 +7,7 @@ nav {
   display: flex;
   align-content: center;
   justify-content: space-between;
+  cursor: default;
 }
 
 nav:first-child {
@@ -17,4 +18,10 @@ nav:first-child {
 nav i {
   /* Chevron Icon */
   color: red;
+}
+
+.navbutton:hover {
+  cursor: pointer;
+  box-shadow: 0px 3px 2px #1f388a;
+  transition: box-shadow .2s ease-in;
 }

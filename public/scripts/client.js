@@ -5,8 +5,13 @@
 */
 
 $(document).ready(function () {
-  //Hide Tweet Input Error Message
+  //Hide New Tweet area and Input Error Message
   $("#inputError").hide()
+  $(".new-tweet").hide()
+
+  //Loads All Posts on REFRESH
+  const fetchAndUpdateAll = () => loadTweets(renderTweets)
+  fetchAndUpdateAll()
 
   $('form button').on('click', event => {
     // Submit Post/Tweet
@@ -14,9 +19,24 @@ $(document).ready(function () {
     validateAndSubmit()
   });
 
-  //Loads All Posts on REFRESH
-  const fetchAndUpdateAll = () => loadTweets(renderTweets)
-  fetchAndUpdateAll()
+
+  //Toggle Input Box
+  $('.navbutton').on('click', () => {
+    $(".new-tweet").animate({
+      height: "toggle",
+      opacity: "toggle"
+    }, {
+      duration: "slow"
+    });
+    $('textarea').focus()
+  })
+
+  //Rtn to Top Button 
+  $('window').scroll( function(){
+    console.log("TEST")
+
+  })
+  // .scroll()
 
 
 });
