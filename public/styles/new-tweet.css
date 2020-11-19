@@ -5,7 +5,6 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  
 }
 
 form {
@@ -41,9 +40,13 @@ textarea {
   font-family: 'Bungee', cursive;
 }
 
-button {
+.new-tweet button {
   background-color: #4056a1;
   color: #FFFFFF;
+}
+
+.new-tweet button:focus {
+  outline: none;
 }
 
 /* Class of the counter will Add to counterLimit Class if the char. count is over 140 */
@@ -61,5 +64,4 @@ button {
   justify-content: center;
   align-items: center;
   margin-bottom: .2rem;
- 
 }

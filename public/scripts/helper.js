@@ -1,9 +1,7 @@
 const loadTweets = function (action) {
-  console.log("LOADING ALL TWEETS")
   //GET the latest Tweet
   $.ajax("/tweets/")
     .then(res => {
-      // console.log(res)
       action(res)
     });
 };
@@ -11,7 +9,6 @@ const loadTweets = function (action) {
 const renderTweets = function (inputData) {
   // empty then in sectoin
   $('#tweets-container').empty()
-  console.log("Rendering (All data to indv)")
   // Reverses JSON to give newest first (should be switchable)
   const revData = inputData //.reverse()
   for (post of revData) {
@@ -22,11 +19,6 @@ const renderTweets = function (inputData) {
 
 const createTweetElement = function (post) {
   // Got a good way of doing it, should break down into chunks
-  console.log("Creating Tweet", post)
-
-  //User Input w. Escape
-  // const userInput = $("<p class='tweet-contents'>").text(post.content.text)
-  // $("p").append(" <b>Appended text</b>.");
 
   const $tweet = $(`
 
@@ -52,7 +44,6 @@ const createTweetElement = function (post) {
   $('#tweets-container').prepend($tweet);
 };
 
-
 const escape = function (str) {
   let p = document.createElement('p');
   p.appendChild(document.createTextNode(str));
@@ -63,11 +54,8 @@ const escape = function (str) {
 
 
 const validateAndSubmit = function () {
-  const tidyUp = () => {
-    resetTextBox();
-    $("#inputError").hide('slow')
-    loadTweets(renderTweets);
-  }
+ 
+  $("#inputError").hide('slow')
   input = $("#tweet-text").val()
   if (input === "") {
     // Must have something to input
@@ -84,7 +72,8 @@ const validateAndSubmit = function () {
       url: "/tweets/",
       data: $('form').serialize()
     })
-      .then(tidyUp())
+      .then(resetTextBox())
+      .then(loadTweets(renderTweets))
     // .then(resetTextBox)
     // .then($("#inputError").hide())
   }
