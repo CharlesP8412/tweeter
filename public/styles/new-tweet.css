@@ -42,6 +42,12 @@ textarea {
   color: #FFFFFF;
 }
 
+.new-tweet button:hover {
+  background-color: gray;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
 .new-tweet button:focus {
   outline: none;
 }
