@@ -35,7 +35,8 @@ header {
 }
 
 main.container {
-    width: 90%;
+    /* width: 90%; */
+    /* ^^ Fill fix lg display width */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,10 +48,10 @@ main.container {
 .lgDisplay{
 border: 5px dashed darkblue;
 width: 100%;
-display: flex;
+/* display: flex;
 flex-direction: column;
 justify-content: center;
-align-content: center;
+align-content: center; */
 }
 
 
