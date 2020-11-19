@@ -1,0 +1,20 @@
+/* =======  Tablet & Desktop Styles +768px =================== */
+
+@media only screen and (min-width: 768px) {
+  div.lgDisplay {
+    border: 5px dashed red;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    
+  }
+  .lgDisplay > :first-child {
+    border: 5px dashed blue;
+    margin: 3%;
+    width: 40%;
+  }
+  #tweets-container article {
+    flex-wrap: nowrap;
+  }
+}

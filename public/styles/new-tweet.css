@@ -14,8 +14,6 @@ form {
 }
 
 textarea {
-  height: auto;
-  /* vh is based on height may want to change, % relative to overall */
   width: 100%;
   background-color: #f4f1ec;
   border-color: #f4f1ec;
@@ -28,8 +26,6 @@ textarea {
   font-weight: bold;
   font-size: 1.2rem;
 }
-
-/* Button and Count  */
 
 .new-tweet div {
   padding: 5px;
@@ -49,9 +45,8 @@ textarea {
   outline: none;
 }
 
-/* Class of the counter will Add to counterLimit Class if the char. count is over 140 */
-
 .counterLimit {
+  /* Class of the counter will Add to counterLimit Class if the char. count is over 140 */
   color: red;
 }
 
