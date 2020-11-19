@@ -5,7 +5,8 @@
 */
 
 $(document).ready(function () {
-
+  //Hide Tweet Input Error Message
+  $("#inputError").hide()
 
   $('form button').on('click', event => {
     // Submit Post/Tweet
@@ -16,6 +17,7 @@ $(document).ready(function () {
   //Loads All Posts on REFRESH
   const fetchAndUpdateAll = () => loadTweets(renderTweets)
   fetchAndUpdateAll()
+
 
 });
 

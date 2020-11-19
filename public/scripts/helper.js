@@ -24,6 +24,9 @@ const createTweetElement = function (post) {
   // Got a good way of doing it, should break down into chunks
   console.log("Creating Tweet", post)
 
+  //User Input w. Escape
+  // const userInput = $("<p class='tweet-contents'>").text(post.content.text)
+  // $("p").append(" <b>Appended text</b>.");
 
   const $tweet = $(`
 
@@ -32,7 +35,7 @@ const createTweetElement = function (post) {
 <span><img src=${post.user.avatars}><p>${post.user.name}</p></span>
 <span id="handle">${post.user.handle}</span>
 </header>
-<p class='tweet-contents'>${post.content.text}</p>
+<p class='tweet-contents'>${escape(post.content.text)}</p>  
 <footer>
 <span>${post.created_at} days ago</span>
 <span class="icons">
@@ -44,47 +47,48 @@ const createTweetElement = function (post) {
 </article>
 `);
 
+
   // return $tweet;
   $('#tweets-container').prepend($tweet);
 };
 
 
-
-
-const addLatestPost = (posts, creationMethod) => {
-  const post = Object.values(posts).pop();
-  creationMethod(post)
+const escape = function (str) {
+  let p = document.createElement('p');
+  p.appendChild(document.createTextNode(str));
+  return p.innerHTML;
 }
 
 
 
 
-
-const validateAndSubmit = function() {
+const validateAndSubmit = function () {
+  const tidyUp = () => {
+    resetTextBox();
+    $("#inputError").hide('slow')
+    loadTweets(renderTweets);
+  }
   input = $("#tweet-text").val()
   if (input === "") {
     // Must have something to input
-    alert("Tweets cannot be empty")
-
+        $('#inputError').text("Womp womp, Tweets cannot be empty")
+        $('#inputError').show('slow')
   } else if (input.length > 140) {
     //Max Character Exceeded
-    alert("Uh oh, your tweet is more than 140 characters")
+    $('#inputError').text("Whoa now! Your tweet is more than 140 characters")
+    $('#inputError').show('slow')
   } else {
-    submitTweet();
-    const fetchAndUpdateAll = () => loadTweets(renderTweets)
-    fetchAndUpdateAll()
-  }
-   
-}
 
-const submitTweet = function(){
-  console.log('SUBMITTING')
-  $.ajax({
-    method: 'POST',
-    url: "/tweets/",
-    data: $('form').serialize()
-  })
-  resetTextBox();
+    $.ajax({
+      method: 'POST',
+      url: "/tweets/",
+      data: $('form').serialize()
+    })
+      .then(tidyUp())
+    // .then(resetTextBox)
+    // .then($("#inputError").hide())
+  }
+
 }
 
 
@@ -95,9 +99,3 @@ const resetTextBox = () => {
 }
 
 
-
-   //Add LatestPost to List
-    //Call
-    // const createSinglePost = posts => addLatestPost(posts, createTweetElement);
-    // const fetchAndUpdate = () => loadTweets(createSinglePost)
-    // fetchAndUpdate()
