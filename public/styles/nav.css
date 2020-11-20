@@ -19,7 +19,7 @@ nav:first-child {
 }
 
 
-.navbutton {
+.navButton {
   padding: 8px;
   border-radius: 5px;
   display: flex;
@@ -27,11 +27,11 @@ nav:first-child {
   align-items: center;
 }
 
-.navbutton:hover {
+/* .navbutton:hover {
   cursor: pointer;
   color: gray
 }
-
+ */
 @keyframes bounce { 
   0% { transform: translateY(0); }
   100% { transform: translateY(-8px); }

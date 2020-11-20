@@ -20,9 +20,9 @@ const createTweetElement = function(post) {
 <footer>
 <span>${moment(post.created_at).fromNow()}</span>
 <span class="icons">
-  <i class="fas fa-flag" title="Flag Inappropriate"></i>
-  <i class="fas fa-retweet" title="Re-Twit"></i>
-  <i class="fas fa-heart" title="Heart it Up"></i>
+  <i class="fas fa-flag hoverBtn" title="Flag Inappropriate"></i>
+  <i class="fas fa-retweet hoverBtn" title="Re-Twit"></i>
+  <i class="fas fa-heart hoverBtn" title="Heart it Up"></i>
 </span>
 </footer>
 </article>
@@ -82,9 +82,20 @@ const resetTextBox = () => {
   $('output.counter').val(140);
 };
 
+const rtnToTopTrigger = function() {
+  // Show/Hide Button on scroll Button
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 50) {
+      $("#topButton").show("slow");
+    } else {
+      $("#topButton").hide("slow");
+    }
+  });
+}
 
+//==================== Click Actions ==========================================
 const toggleTweetInputClick = function() {
-  $('.navbutton').on('click', () => {
+  $('.navButton').on('click', () => {
     $(".new-tweet").animate({
       height: "toggle",
       opacity: "toggle"
@@ -109,13 +120,3 @@ const rtnToTopClick = function() {
   });
 }
 
-const rtnToTopTrigger = function() {
-  // Show/Hide Button on scroll Button
-  $(window).scroll(function() {
-    if ($(window).scrollTop() > 50) {
-      $("#topButton").show("slow");
-    } else {
-      $("#topButton").hide("slow");
-    }
-  });
-}

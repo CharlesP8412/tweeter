@@ -29,6 +29,10 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+.hoverBtn:hover{
+    cursor: pointer;
+    color: gray
+}
 
 header {
     margin: 0;
