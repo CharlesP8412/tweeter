@@ -23,12 +23,12 @@
   flex-wrap: wrap;
 }
 
-#tweets-container #handle {
+#tweets-container .hide {
   /* Hides User name until Article:hover is active */
   display: none;
 }
 
-#tweets-container article:hover #handle {
+#tweets-container article:hover .hide {
   /* Targets the hande and makes it re-appear*/
   display: flex;
 }

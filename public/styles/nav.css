@@ -27,11 +27,6 @@ nav:first-child {
   align-items: center;
 }
 
-/* .navbutton:hover {
-  cursor: pointer;
-  color: gray
-}
- */
 @keyframes bounce { 
   0% { transform: translateY(0); }
   100% { transform: translateY(-8px); }
