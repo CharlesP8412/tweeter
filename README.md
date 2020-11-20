@@ -27,6 +27,6 @@ Back-end provided by Lighthouse Labs using Node, Express and MongoDB.
 - 
 
 ## Final Product
-!["Tweeter mobile view"](#)
-!["Tweeter in full display"](#)
+!["Tweeter mobile view"](https://github.com/CharlesP8412/tweeter/blob/master/docs/tweeter-mobileDisplay.png)
+!["Tweeter in full display"](https://github.com/CharlesP8412/tweeter/blob/master/docs/tweeter-lgDisplay.png)
 
