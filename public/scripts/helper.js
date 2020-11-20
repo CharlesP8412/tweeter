@@ -14,7 +14,7 @@ const createTweetElement = function(post) {
 <article class="tweet">
 <header>
 <span><img src=${post.user.avatars}><p>${post.user.name}</p></span>
-<span id="handle">${post.user.handle}</span>
+<span class="hide">${post.user.handle}</span>
 </header>
 <p class='tweet-contents'>${escapeStr(post.content.text)}</p>
 <footer>
