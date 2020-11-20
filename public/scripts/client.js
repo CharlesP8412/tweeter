@@ -5,9 +5,7 @@
 */
 
 $(document).ready(function () {
-  //Hide New Tweet area and Input Error Message
-  $("#inputError").hide();
-  $(".new-tweet").hide();
+  initializePage();
 
   fetchAndUpdateAll();
 

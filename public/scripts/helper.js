@@ -76,6 +76,12 @@ const escapeStr = function(str) {
 };
 
 //==================== Page Handling ==========================================
+const initializePage = function() {
+  //Hide New Tweet area and Input Error Message
+  $("#inputError").hide();
+  $(".new-tweet").hide();
+}
+
 const resetTextBox = () => {
   //Clear Text Box after post and reset counter
   $('#tweet-text').val('');
@@ -93,13 +99,13 @@ const rtnToTopTrigger = function() {
   });
 }
 
-const closeTweetInputScroll = function(){
+const closeTweetInputScroll = function() {
   // Closes Tweet Box if you scroll out of view (approx 2-3 tweets deep)
-$(window).scroll(function () {
-  if ($(window).scrollTop() > 700) {
-    $(".new-tweet").hide()
-   }
-});
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 700) {
+      $(".new-tweet").hide()
+    }
+  });
 }
 
 //==================== Click Actions ==========================================
@@ -128,4 +134,3 @@ const rtnToTopClick = function() {
     $('html, body').animate({ scrollTop: 0 }, '300');
   });
 }
-
