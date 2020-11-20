@@ -6,46 +6,21 @@
 
 $(document).ready(function () {
   //Hide New Tweet area and Input Error Message
-  // $('#tweets-container.firstChild) === null => show
-  console.log($('#tweets-container[0].childNodes').length)
   $("#inputError").hide();
   $(".new-tweet").hide();
   
-  //Loads All Posts on REFRESH
-  const fetchAndUpdateAll = () => loadTweets(renderTweets);
   fetchAndUpdateAll();
 
-  $('form button').on('click', event => {
-    // Submit Post/Tweet
-    event.preventDefault();
-    validateAndSubmit();
-  });
+  postTweetClick()
+ 
+  toggleTweetInputClick();
+  
+  rtnToTopTrigger();
+ 
+  rtnToTopClick();
+  
 
 
-  //Toggle Input Box
-  $('.navbutton').on('click', () => {
-    $(".new-tweet").animate({
-      height: "toggle",
-      opacity: "toggle"
-    }, {
-      duration: "slow"
-    });
-    $('textarea').focus();
-  });
-
-  //Rtn to Top Button
-  // Show/Hide Button on scroll Button
-  $(window).scroll(function () {
-    if ($(window).scrollTop() > 50) {
-      $("#topButton").show("slow");
-    } else {
-      $("#topButton").hide("slow");
-    }
-  });
-  //Rtn to Top on Click
-  $('#topButton').on('click', () => {
-    $('html, body').animate({ scrollTop: 0 }, '300');
-  });
 });
 
 

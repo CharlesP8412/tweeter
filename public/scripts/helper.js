@@ -1,3 +1,4 @@
+//=============Tweet Handling =====================================================
 const loadTweets = function(action) {
   //GET the latest Tweet
   $.ajax("/tweets/")
@@ -6,19 +7,8 @@ const loadTweets = function(action) {
     });
 };
 
-const renderTweets = function(inputData) {
-  // empty then in sectoin
-  $('#tweets-container').empty();
-  // Reverses JSON to give newest first (should be switchable)
-  const revData = inputData; //.reverse()
-  for (post of revData) {
-    createTweetElement(post);
-  }
-};
-
-
 const createTweetElement = function(post) {
-  // Got a good way of doing it, should break down into chunks
+  // Not a good way of doing it, should break down into chunks
 
   const $tweet = $(`
 <article class="tweet">
@@ -26,7 +16,7 @@ const createTweetElement = function(post) {
 <span><img src=${post.user.avatars}><p>${post.user.name}</p></span>
 <span id="handle">${post.user.handle}</span>
 </header>
-<p class='tweet-contents'>${escape(post.content.text)}</p>
+<p class='tweet-contents'>${escapeStr(post.content.text)}</p>
 <footer>
 <span>${moment(post.created_at).fromNow()}</span>
 <span class="icons">
@@ -41,12 +31,17 @@ const createTweetElement = function(post) {
   $('#tweets-container').prepend($tweet);
 };
 
-const escape = function(str) {
-  let p = document.createElement('p');
-  p.appendChild(document.createTextNode(str));
-  return p.innerHTML;
+const renderTweets = function(inputData) {
+  // empty then in sectoin
+  $('#tweets-container').empty();
+  // Reverses JSON to give newest first (should be switchable)
+  const revData = inputData; //.reverse()
+  for (post of revData) {
+    createTweetElement(post);
+  }
 };
 
+const fetchAndUpdateAll = () => loadTweets(renderTweets);
 
 const validateAndSubmit = function() {
 
@@ -60,22 +55,27 @@ const validateAndSubmit = function() {
     $('#inputError').show('slow');
   } else if (input.length > 140) {
     //Max Character Exceeded
-    $('#inputError label').text("Whoa now! Your tweet is more than 140 characters");
+    $('#inputError label').text("Whoa now! Try keep it to 140 characters or less");
     $('#inputError').show('slow');
-
   } else {
     //POST and Tidy Up
     $.ajax({
       method: 'POST',
       url: "/tweets/",
       data: $('form').serialize()
-    }) 
+    })
       .then(resetTextBox())
       .then(() => loadTweets(renderTweets));
   }
 };
 
+const escapeStr = function(str) {
+  let p = document.createElement('p');
+  p.appendChild(document.createTextNode(str));
+  return p.innerHTML;
+};
 
+//==================== Page Handling ==========================================
 const resetTextBox = () => {
   //Clear Text Box after post and reset counter
   $('#tweet-text').val('');
@@ -83,3 +83,39 @@ const resetTextBox = () => {
 };
 
 
+const toggleTweetInputClick = function() {
+  $('.navbutton').on('click', () => {
+    $(".new-tweet").animate({
+      height: "toggle",
+      opacity: "toggle"
+    }, {
+      duration: "slow"
+    });
+    $('textarea').focus();
+  });
+}
+
+const postTweetClick = function() {
+  $('form button').on('click', event => {
+    event.preventDefault();
+    validateAndSubmit();
+  });
+}
+
+const rtnToTopClick = function() {
+  //Rtn to Top on Click
+  $('#topButton').on('click', () => {
+    $('html, body').animate({ scrollTop: 0 }, '300');
+  });
+}
+
+const rtnToTopTrigger = function() {
+  // Show/Hide Button on scroll Button
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 50) {
+      $("#topButton").show("slow");
+    } else {
+      $("#topButton").hide("slow");
+    }
+  });
+}
