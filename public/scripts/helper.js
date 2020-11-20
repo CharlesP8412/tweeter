@@ -69,9 +69,9 @@ const validateAndSubmit = function() {
       method: 'POST',
       url: "/tweets/",
       data: $('form').serialize()
-    })
+    }) 
       .then(resetTextBox())
-      .then(loadTweets(renderTweets));
+      .then(() => loadTweets(renderTweets));
   }
 };
 

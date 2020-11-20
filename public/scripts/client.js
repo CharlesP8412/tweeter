@@ -4,11 +4,13 @@
 * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
 
-$(document).ready(function() {
+$(document).ready(function () {
   //Hide New Tweet area and Input Error Message
+  // $('#tweets-container.firstChild) === null => show
+  console.log($('#tweets-container[0].childNodes').length)
   $("#inputError").hide();
   $(".new-tweet").hide();
-
+  
   //Loads All Posts on REFRESH
   const fetchAndUpdateAll = () => loadTweets(renderTweets);
   fetchAndUpdateAll();
@@ -33,7 +35,7 @@ $(document).ready(function() {
 
   //Rtn to Top Button
   // Show/Hide Button on scroll Button
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(window).scrollTop() > 50) {
       $("#topButton").show("slow");
     } else {
