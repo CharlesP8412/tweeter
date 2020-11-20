@@ -28,7 +28,7 @@ const createTweetElement = function(post) {
 </header>
 <p class='tweet-contents'>${escape(post.content.text)}</p>
 <footer>
-<span>${post.created_at} days ago</span>
+<span>${moment(post.created_at).fromNow()}</span>
 <span class="icons">
   <i class="fas fa-flag" title="Flag Inappropriate"></i>
   <i class="fas fa-retweet" title="Re-Twit"></i>
