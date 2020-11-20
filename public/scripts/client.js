@@ -8,18 +8,19 @@ $(document).ready(function () {
   //Hide New Tweet area and Input Error Message
   $("#inputError").hide();
   $(".new-tweet").hide();
-  
+
   fetchAndUpdateAll();
 
   postTweetClick()
- 
-  toggleTweetInputClick();
-  
-  rtnToTopTrigger();
- 
-  rtnToTopClick();
-  
 
+  toggleTweetInputClick();
+
+  rtnToTopTrigger();
+
+  rtnToTopClick();
+
+  closeTweetInputScroll();
+  
 
 });
 

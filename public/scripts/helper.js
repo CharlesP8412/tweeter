@@ -93,6 +93,15 @@ const rtnToTopTrigger = function() {
   });
 }
 
+const closeTweetInputScroll = function(){
+  // Closes Tweet Box if you scroll out of view (approx 2-3 tweets deep)
+$(window).scroll(function () {
+  if ($(window).scrollTop() > 700) {
+    $(".new-tweet").hide()
+   }
+});
+}
+
 //==================== Click Actions ==========================================
 const toggleTweetInputClick = function() {
   $('.navButton').on('click', () => {
