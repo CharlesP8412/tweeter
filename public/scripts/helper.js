@@ -70,6 +70,7 @@ const validateAndSubmit = function() {
 };
 
 const escapeStr = function(str) {
+  // Cross Site Script Couter-measure
   let p = document.createElement('p');
   p.appendChild(document.createTextNode(str));
   return p.innerHTML;
