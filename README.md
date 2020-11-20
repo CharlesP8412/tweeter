@@ -6,6 +6,9 @@ Front-end was artisinally hand crafted using HTML, AJAX, CSS, jQuery;
 
 Back-end provided by Lighthouse Labs using Node, Express and MongoDB. 
 
+## Final Product
+!["Tweeter mobile view"](https://raw.githubusercontent.com/CharlesP8412/tweeter/master/docs/tweeter-mobileDisplay.png)
+!["Tweeter in full display"](https://raw.githubusercontent.com/CharlesP8412/tweeter/master/docs/tweeter-lgDisplay.png)
 
 ## Getting Started
 
@@ -25,8 +28,4 @@ Back-end provided by Lighthouse Labs using Node, Express and MongoDB.
 - Single Page Application - No refresh required; all the information POST and GET are triggered within actions on the site.
 - Responsive Design - Designed to support various display sizes, and transition between various sizes on the fly.
 - 
-
-## Final Product
-!["Tweeter mobile view"](https://raw.githubusercontent.com/CharlesP8412/tweeter/master/docs/tweeter-mobileDisplay.png)
-!["Tweeter in full display"](https://raw.githubusercontent.com/CharlesP8412/tweeter/master/docs/tweeter-lgDisplay.png)
 
